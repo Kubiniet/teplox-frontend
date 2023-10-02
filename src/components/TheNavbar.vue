@@ -1,3 +1,10 @@
+<script setup lang="ts">
+const router = useRouter()
+const go = () => {
+  router.push('/')
+}
+</script>
+
 <template>
   <div
     bg-gradient-to-r
@@ -9,8 +16,8 @@
     flex
     justify-between
   >
-    <span />
-    <span text-2xl text-bold>TEPLOX</span>
+    <span w-5 />
+    <span text-3xl text-bold @click="go">TEPLOX</span>
     <button icon-btn pr-4 @click="toggleDark()">
       <div dark:i-carbon-moon i-carbon-sun />
     </button>

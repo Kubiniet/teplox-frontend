@@ -70,7 +70,7 @@ const hes = {
 <template>
   <div>
     <div class="flex items-start flex-wrap justify-center gap-4">
-      <ThePreCalcTable />
+      <ThePreCalcTable :area-exchange="193.6" />
       <ThePostCalcTable />
     </div>
   </div>

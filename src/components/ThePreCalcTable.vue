@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import { useHeaterStore } from '~/stores/useHeaterStore'
+
+// const props = defineProps({ areaExchange: { type: Number, required: true } })
+const store = useHeaterStore()
+const heater = store.hes?.valueOf()
+</script>
+
 <template>
   <div class="bg-violet-9 dark:bg-trueGray-800 text-white px-4 rounded-3xl  hover:bg-purple-9 hover:shadow-black py-4 pt-5 mt-4 shadow-md shadow-purple-500/50">
     <table table-auto>
@@ -18,21 +26,19 @@
           Коэффициент теплопередачи
         </td>
         <td>
-          Вт/(м2 К)
+          Вт/(м2×К)
         </td>
-        <td>
-          200
-        </td>
+        <td>200</td>
       </tr>
       <tr border-b>
         <td text-start ps-2>
           Поверхность теплообмена, Fпр.
         </td>
         <td>
-          м2
+          м&sup2;
         </td>
         <td>
-          #REF!
+          Fix
         </td>
       </tr>
       <tr border-b>
@@ -43,7 +49,7 @@
           <br>
         </td>
         <td>
-          ХН
+          {{ heater.he.tipe.toUpperCase() }}
         </td>
       </tr>
       <tr border-b>
@@ -62,10 +68,10 @@
           Поверхность теплообмена, Fкат.
         </td>
         <td>
-          м2
+          м&sup2;
         </td>
         <td>
-          193.6
+          {{ heater.he.area_of_exchange }}
         </td>
       </tr>
       <tr border-b>
@@ -76,7 +82,7 @@
           шт.
         </td>
         <td>
-          4
+          {{ heater.he.n_ways }}
         </td>
       </tr>
       <tr border-b>
@@ -87,7 +93,7 @@
           мм
         </td>
         <td r>
-          25
+          {{ heater.he.Dn_tube }}
         </td>
       </tr>
       <tr border-b>
@@ -109,7 +115,7 @@
           мм
         </td>
         <td>
-          6000
+          {{ heater.he.l }}
         </td>
       </tr>
       <tr border-b>
@@ -117,10 +123,10 @@
           Расположение трубок
         </td>
         <td>
-          <br>
+          △
         </td>
         <td>
-          1
+          Треугольник
         </td>
       </tr>
       <tr border-b>
@@ -131,7 +137,7 @@
           мм
         </td>
         <td>
-          800
+          {{ heater.he.Dbn }}
         </td>
       </tr>
       <tr border-b>
@@ -150,10 +156,10 @@
           на 1 ход в трубном пространстве
         </td>
         <td>
-          м2
+          м&sup2;
         </td>
         <td>
-          0.0329
+          {{ heater.he.area_tube }}
         </td>
       </tr>
       <tr border-b border-purple-3>
@@ -161,10 +167,10 @@
           между перегородками в межтр.пр.
         </td>
         <td>
-          м2
+          м&sup2;
         </td>
         <td>
-          0.07
+          {{ heater.he.area_out_tube }}
         </td>
       </tr>
       <tr>
@@ -175,7 +181,7 @@
           шт.
         </td>
         <td>
-          412
+          {{ Math.ceil(heater.n_tube_calc) }}
         </td>
       </tr>
     </table>

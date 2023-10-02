@@ -2,6 +2,7 @@
 import { z } from 'zod'
 import { useHeaterStore } from '../stores/useHeaterStore'
 import TheCardMIn from '~/components/TheCardMin.vue'
+
 interface SubstanceInit {
   name: String
   t_1: Number | null
@@ -49,6 +50,34 @@ const form = reactive<FormInit>({
   },
 })
 
+const example = reactive<FormInit>({
+  const_exchange: 200,
+  in_sub: {
+    name: 'water',
+    t_1: 45,
+    t_2: 90,
+    pressure_work: 0.6,
+    heat_capacity: 4180.9,
+    density: 979.9,
+    viscosity: 4.53,
+    thermal_conduct: 0.277,
+    flow: 9.32,
+    where: 'inlet',
+  },
+  out_sub: {
+    name: 'benzin',
+    t_1: 150,
+    t_2: 80,
+    pressure_work: 1.2,
+    heat_capacity: 2430,
+    density: 759,
+    viscosity: 6.605,
+    thermal_conduct: 0.10266,
+    flow: 10.3,
+    where: 'outlet',
+  },
+})
+
 const valid_substance = z.object({
   name: z.string(),
   t_1: z.number().positive(),
@@ -64,8 +93,10 @@ const valid_substance = z.object({
 
 const er = reactive({ feo: {} })
 const empty = ref(false)
-const url = ref('http://127.0.0.1:8000/heaters')
-const showHeaters = ref(true)
+const incorrect = ref(false)
+const url = ref('https://teplox-api.onrender.com/heaters')
+const showHeaters = ref(false)
+const loading = ref(false)
 
 const store = useHeaterStore()
 
@@ -78,31 +109,45 @@ function calculate() {
   if (!validated_data.success) {
     const e = validated_data.error.issues[0]
     er.feo = e
+    empty.value = true
   }
 
   else {
-    const { data, error } = useFetch(url).put(form).json()
+    const {
+      data,
+      error,
+      onFetchResponse,
+    } = useFetch(url).put(form).json()
+    loading.value = true
+    onFetchResponse((response) => {
+      store.$patch({ hesList: data.value })
+      loading.value = false
+      showHeaters.value = true
+      empty.value = false
+    })
+
     if (error.value) {
       er.feo = error.value
-    }
-
-    else if (data.value) {
-      store.$patch({ hesList: data.value })
-      showHeaters.value = true
-    }
-
-    else {
-      store.$reset()
-      empty.value = true
+      incorrect.value = true
     }
   }
+}
+function showExampleValues() {
+  form.const_exchange = example.const_exchange
+  form.in_sub = example.in_sub
+  form.out_sub = example.out_sub
 }
 </script>
 
 <template>
-  <div v-if="empty">
-    <p text-2xl text-red>
+  <div v-if="incorrect">
+    <p text-2xl text-red pb-0>
       Попробуйте другие значения
+    </p>
+  </div>
+  <div v-if="empty">
+    <p text-2xl text-red pb-0>
+      Выполняйте анкету
     </p>
   </div>
   <div flex justify-around flex-wrap>
@@ -401,18 +446,44 @@ function calculate() {
       </div>
     </div>
   </div>
-  <div text-xl>
-    Примеры
+  <div v-if="showHeaters === false && loading === false">
+    <div pt-4 text-3xl inline-block>
+      Примеры
+    </div>
+    <div flex justify-center @click="showExampleValues()">
+      <TheCardMIn :l="4000" :is-example="true" :index="0" />
+    </div>
   </div>
-  <div v-if="showHeaters" flex flex-wrap justify-center gap-4>
-    <div v-if="store.hesList">
-      <div v-for="item in store.hesList" :key="item.required_area_exchange?.valueOf()">
+  <div
+    v-else-if="loading === true"
+    class=" m-4 inline-block h-10 w-10 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+    role="status"
+  >
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+    >Loading...</span>
+  </div>
+  <template v-else-if="showHeaters && store.hesList ">
+    <div pt-4 text-3xl inline-block>
+      Рекомендуемые аппараты
+    </div>
+    <div flex justify-center gap-4 flex-wrap>
+      <div
+        v-for="(item, index) in store.hesList"
+
+        :key="item.he?.area_of_exchange.valueOf()"
+      >
         <div v-if="item.he">
-          <TheCardMIn :l="item.he?.l.valueOf()" />
+          <TheCardMIn
+            :index="index"
+            :l="item.he?.l.valueOf()"
+            :dbn="item.he.Dbn.valueOf()"
+            :pressure="item.he.pressure.valueOf()"
+            :n-ways="item.he.n_ways.valueOf()"
+            :d-tube="item.he.Dn_tube.valueOf()"
+          />
         </div>
       </div>
     </div>
-
-    <TheCardMIn :l="4000" />
-  </div>
+  </template>
 </template>
