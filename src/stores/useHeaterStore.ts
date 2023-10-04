@@ -21,8 +21,8 @@ interface he {
   area_out_tube: Number
   n_ways: Number
   Dn_tube: Number
-  in_sub: SubstanceInit
-  out_sub: SubstanceInit
+  in_let_s: SubstanceInit
+  out_let_s: SubstanceInit
   tipe: String
   pressure: Number
   avg_dif_temp: Number
