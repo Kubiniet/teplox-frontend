@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useHeaterStore } from '~/stores/useHeaterStore'
 
-// const props = defineProps({ areaExchange: { type: Number, required: true } })
 const store = useHeaterStore()
 const heater = store.hes?.valueOf()
 </script>
@@ -26,7 +25,7 @@ const heater = store.hes?.valueOf()
           Коэффициент теплопередачи
         </td>
         <td>
-          Вт/(м2×К)
+          Вт/(м&sup2×К)
         </td>
         <td>200</td>
       </tr>

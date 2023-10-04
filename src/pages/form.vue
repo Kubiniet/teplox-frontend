@@ -94,7 +94,8 @@ const valid_substance = z.object({
 const er = reactive({ feo: {} })
 const empty = ref(false)
 const incorrect = ref(false)
-const url = ref('https://teplox-api.onrender.com/heaters')
+const urlProd = ref('https://teplox-api.onrender.com/heaters')
+const url = ref('http://127.0.0.1:8000/heaters')
 const showHeaters = ref(false)
 const loading = ref(false)
 
@@ -448,10 +449,14 @@ function showExampleValues() {
   </div>
   <div v-if="showHeaters === false && loading === false">
     <div pt-4 text-3xl inline-block>
-      Примеры
+      Пример
     </div>
-    <div flex justify-center @click="showExampleValues()">
-      <TheCardMIn :l="4000" :is-example="true" :index="0" />
+    <div flex justify-center>
+      <TheHeaterExample
+        :in-sub="example.in_sub"
+        :out-sub="example.out_sub"
+        @click="showExampleValues()"
+      />
     </div>
   </div>
   <div
@@ -467,7 +472,7 @@ function showExampleValues() {
     <div pt-4 text-3xl inline-block>
       Рекомендуемые аппараты
     </div>
-    <div flex justify-center gap-4 flex-wrap>
+    <div flex justify-center gap-x-4 flex-wrap>
       <div
         v-for="(item, index) in store.hesList"
 
