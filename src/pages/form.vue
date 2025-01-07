@@ -160,40 +160,22 @@ function showExampleValues() {
         <div flex gap-2>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="name"
-                v-model="form.in_sub.name"
-                name="name"
-                type="text"
-                class="peer h-10 w-full input "
-                placeholder="name"
-              >
+              <input id="name" v-model="form.in_sub.name" name="name" type="text" class="peer h-10 w-full input "
+                placeholder="name">
               <label for="name" text-xs class="label ">Среда</label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="pressure"
-                v-model="form.in_sub.pressure_work"
-                type="number"
-                name="pressure"
-                class="peer h-10 w-full input"
-                placeholder="pressure"
-              >
+              <input id="pressure" v-model="form.in_sub.pressure_work" type="number" name="pressure"
+                class="peer h-10 w-full input" placeholder="pressure">
               <label for="pressure" class="label">Рраб. (МПа)</label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="flow"
-                v-model="form.in_sub.flow"
-                type="number"
-                name="flow"
-                class="peer h-10 w-full input"
-                placeholder="Flow"
-              >
+              <input id="flow" v-model="form.in_sub.flow" type="number" name="flow" class="peer h-10 w-full input"
+                placeholder="Flow">
               <label for="flow" class="label"> G (кг/с)</label>
             </div>
           </div>
@@ -201,41 +183,21 @@ function showExampleValues() {
         <div flex mt-6 justify-between gap-2>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="t_1"
-                v-model="form.in_sub.t_1"
-                name="t_1"
-                type="number"
-                class="peer input"
-                placeholder="t_1"
-                required="true"
-              >
+              <input id="t_1" v-model="form.in_sub.t_1" name="t_1" type="number" class="peer input" placeholder="t_1"
+                required="true">
               <label for="t_1" class="label text-xs">Твход (°C)</label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="t_2"
-                v-model="form.in_sub.t_2"
-                name="t_2"
-                type="number"
-                class="peer input"
-                placeholder="t_2"
-              >
+              <input id="t_2" v-model="form.in_sub.t_2" name="t_2" type="number" class="peer input" placeholder="t_2">
               <label for="t_2" class="label">Твых (°C)</label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="density"
-                v-model="form.in_sub.density"
-                type="number"
-                name="density"
-                class="peer input"
-                placeholder="density"
-              >
+              <input id="density" v-model="form.in_sub.density" type="number" name="density" class="peer input"
+                placeholder="density">
               <label for="density" class="label  ">ρ (кг/м³)</label>
             </div>
           </div>
@@ -243,40 +205,22 @@ function showExampleValues() {
         <div flex mt-6 justify-between gap-2>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="heat_capacity"
-                v-model="form.in_sub.heat_capacity"
-                name="heat_capacity"
-                type="number"
-                class="peer input"
-                placeholder="heat_capacity"
-              >
+              <input id="heat_capacity" v-model="form.in_sub.heat_capacity" name="heat_capacity" type="number"
+                class="peer input" placeholder="heat_capacity">
               <label for="heat_capacity" label> Ср Дж/(кг⋅К) </label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="viscosity"
-                v-model="form.in_sub.viscosity"
-                name="viscosity"
-                type="number"
-                class="peer input"
-                placeholder="viscosity"
-              >
+              <input id="viscosity" v-model="form.in_sub.viscosity" name="viscosity" type="number" class="peer input"
+                placeholder="viscosity">
               <label for="viscosity" class="label">ν (м²/с)</label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="thermal_conduct"
-                v-model="form.in_sub.thermal_conduct"
-                type="number"
-                name="thermal_conduct"
-                class="peer input"
-                placeholder="thermal_conduct"
-              >
+              <input id="thermal_conduct" v-model="form.in_sub.thermal_conduct" type="number" name="thermal_conduct"
+                class="peer input" placeholder="thermal_conduct">
               <label for="thermal_conduct" label>λ (Вт/(м⋅К))</label>
             </div>
           </div>
@@ -292,41 +236,22 @@ function showExampleValues() {
         <div flex gap-2>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="name_out"
-                v-model="form.out_sub.name"
-                name="name"
-                required="true"
-                type="text"
-                class="peer h-10 w-full input"
-                placeholder="name"
-              >
+              <input id="name_out" v-model="form.out_sub.name" name="name" required="true" type="text"
+                class="peer h-10 w-full input" placeholder="name">
               <label for="name_out" class="label">Среда</label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="pressure_out"
-                v-model="form.out_sub.pressure_work"
-                type="number"
-                name="pressure"
-                class="peer h-10 w-full input"
-                placeholder="pressure"
-              >
+              <input id="pressure_out" v-model="form.out_sub.pressure_work" type="number" name="pressure"
+                class="peer h-10 w-full input" placeholder="pressure">
               <label for="pressure_out" class="label">Рраб. (МПа)</label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="flow_out"
-                v-model="form.out_sub.flow"
-                type="number"
-                name="flow"
-                class="peer h-10 w-full input appearance-none"
-                placeholder="Flow"
-              >
+              <input id="flow_out" v-model="form.out_sub.flow" type="number" name="flow"
+                class="peer h-10 w-full input appearance-none" placeholder="Flow">
               <label for="flow_out" class="label">G (кг/с)</label>
             </div>
           </div>
@@ -334,40 +259,22 @@ function showExampleValues() {
         <div flex mt-6 justify-between gap-2>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="t_1_out"
-                v-model="form.out_sub.t_1"
-                name="t_1"
-                type="number"
-                class="peer input"
-                placeholder="t_1"
-              >
+              <input id="t_1_out" v-model="form.out_sub.t_1" name="t_1" type="number" class="peer input"
+                placeholder="t_1">
               <label for="t_1_out" class="label">Твход (°C)</label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="t_2_out"
-                v-model="form.out_sub.t_2"
-                name="t_2"
-                type="number"
-                class="peer input"
-                placeholder="t_2_out"
-              >
+              <input id="t_2_out" v-model="form.out_sub.t_2" name="t_2" type="number" class="peer input"
+                placeholder="t_2_out">
               <label for="t_2_out" class="label">Твых (°C)</label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="density_out"
-                v-model="form.out_sub.density"
-                type="number"
-                name="density"
-                class="peer input"
-                placeholder="density"
-              >
+              <input id="density_out" v-model="form.out_sub.density" type="number" name="density" class="peer input"
+                placeholder="density">
               <label for="density_out" class="label">ρ (кг/м³)</label>
             </div>
           </div>
@@ -375,40 +282,22 @@ function showExampleValues() {
         <div flex mt-6 justify-between gap-2>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="heat_capacity_out"
-                v-model="form.out_sub.heat_capacity"
-                name="heat_capacity"
-                type="number"
-                class="peer input"
-                placeholder="heat_capacity"
-              >
+              <input id="heat_capacity_out" v-model="form.out_sub.heat_capacity" name="heat_capacity" type="number"
+                class="peer input" placeholder="heat_capacity">
               <label for="heat_capacity_out" label> Ср Дж/(кг⋅К)</label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="viscosity_out"
-                v-model="form.out_sub.viscosity"
-                name="viscosity"
-                type="number"
-                class="peer input"
-                placeholder="viscosity"
-              >
+              <input id="viscosity_out" v-model="form.out_sub.viscosity" name="viscosity" type="number"
+                class="peer input" placeholder="viscosity">
               <label for="viscosity_out" class="label">ν (м²/с)</label>
             </div>
           </div>
           <div class="w-1/3">
             <div class="relative">
-              <input
-                id="thermal_conduct_out"
-                v-model="form.out_sub.thermal_conduct"
-                type="number"
-                name="thermal_conduct"
-                class="peer input"
-                placeholder="thermal_conduct"
-              >
+              <input id="thermal_conduct_out" v-model="form.out_sub.thermal_conduct" type="number"
+                name="thermal_conduct" class="peer input" placeholder="thermal_conduct">
               <label for="thermal_conduct_out" label>λ (Вт/(м⋅К))</label>
             </div>
           </div>
@@ -418,29 +307,21 @@ function showExampleValues() {
     </div>
   </div>
   <div flex justify-center>
-    <div bg-violet-9 dark:bg-trueGray-800 px-4 rounded-3xl max-w-sm py-4 pt-5 mt-4 class="shadow-md shadow-purple-500/50">
+    <div bg-violet-9 dark:bg-trueGray-800 px-4 rounded-3xl max-w-sm py-4 pt-5 mt-4
+      class="shadow-md shadow-purple-500/50">
       <div flex justify-between gap-3>
         <div class="w-3/4 ">
           <div class="relative">
-            <input
-              id="const_exchange"
-              v-model="form.const_exchange"
-              type="number"
-              name="const_exchange"
-              class="peer h-10 w-full input"
-              placeholder="const_exchange"
-            >
+            <input id="const_exchange" v-model="form.const_exchange" type="number" name="const_exchange"
+              class="peer h-10 w-full input" placeholder="const_exchange">
             <label for="const_exchange" class="label">К (Вт/(м²⋅К))</label>
             <label for="const_exchange" text="xs white dark:purple">(120 ... 300)</label>
           </div>
         </div>
         <div class="w-1/4 flex flex-col justify-center align-middle">
-          <button
-            type="submit"
+          <button type="submit"
             class=" pa-2  rounded-xl bg-purple hover:bg-purple-6 text-white font-semibold text-center cursor-pointer "
-
-            @click="calculate"
-          >
+            @click="calculate">
             Расчет
           </button>
         </div>
@@ -452,41 +333,43 @@ function showExampleValues() {
       Пример
     </div>
     <div flex justify-center>
-      <TheHeaterExample
-        :in-sub="example.in_sub"
-        :out-sub="example.out_sub"
-        @click="showExampleValues()"
-      />
+      <TheHeaterExample :in-sub="example.in_sub" :out-sub="example.out_sub" @click="showExampleValues()" />
     </div>
   </div>
-  <div
-    v-else-if="loading === true"
+  <div v-else-if="loading === true"
     class=" m-4 inline-block h-10 w-10 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-    role="status"
-  >
+    role="status">
     <span
-      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
-    >Loading...</span>
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
   </div>
-  <template v-else-if="showHeaters && store.hesList ">
+  <template v-else-if="showHeaters && store.hesList">
     <div pt-4 text-3xl inline-block>
       Рекомендуемые аппараты
     </div>
-    <div flex justify-center gap-x-4 flex-wrap>
-      <div
-        v-for="(item, index) in store.hesList"
-
-        :key="item.he?.area_of_exchange.valueOf()"
-      >
+    <div flex justify-center align-center gap-x-4 flex-wrap max-w-xl mx-auto>
+      <div v-for="(item, index) in store.hesList" :key="item.he?.area_of_exchange.valueOf()">
         <div v-if="item.he">
-          <TheCardMIn
-            :index="index"
-            :l="item.he?.l.valueOf()"
-            :dbn="item.he.Dbn.valueOf()"
-            :pressure="item.he.pressure.valueOf()"
-            :n-ways="item.he.n_ways.valueOf()"
-            :d-tube="item.he.Dn_tube.valueOf()"
-          />
+          <template v-if="index === 0">
+            <OptimizationCard :in-sub="item.he?.in_let_s" :out-sub="item.he?.out_let_s"
+              :w_1="item.vel_flow_in" :w_2="item.vel_flow_out"
+              :area_of_exchange="item.required_area_exchange.valueOf()" />
+          <TheCardMIn :index="index" :l="item.he?.l.valueOf()" :dbn="item.he.Dbn.valueOf()"
+            :pressure="item.he.pressure.valueOf()" :n-ways="item.he.n_ways.valueOf()"
+            :d-tube="item.he.Dn_tube.valueOf()" />
+          </template>
+          <template v-else-if="index % 2 === 0">
+            <div>
+          <TheCardMIn :index="index" :l="item.he?.l.valueOf()" :dbn="item.he.Dbn.valueOf()"
+            :pressure="item.he.pressure.valueOf()" :n-ways="item.he.n_ways.valueOf()"
+            :d-tube="item.he.Dn_tube.valueOf()" />
+          </div>
+          </template>
+          <template v-else>
+            <TheCardMIn :index="index" :l="item.he?.l.valueOf()" :dbn="item.he.Dbn.valueOf()"
+            :pressure="item.he.pressure.valueOf()" :n-ways="item.he.n_ways.valueOf()"
+            :d-tube="item.he.Dn_tube.valueOf()" />
+          </template>
+
         </div>
       </div>
     </div>

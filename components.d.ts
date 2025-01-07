@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    OptimizationCard: typeof import('./src/components/OptimizationCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheCardMin: typeof import('./src/components/TheCardMin.vue')['default']

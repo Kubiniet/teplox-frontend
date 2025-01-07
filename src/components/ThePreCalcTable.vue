@@ -37,7 +37,7 @@ const heater = store.hes?.valueOf()
           м&sup2;
         </td>
         <td>
-          Fix
+          {{ heater.he.area_of_exchange }}
         </td>
       </tr>
       <tr border-b>

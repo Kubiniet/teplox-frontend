@@ -47,13 +47,22 @@ const goHeater = () => {
 </script>
 
 <template>
-  <div class="bg-violet-9 dark:bg-trueGray-800 text-white px-4 rounded-3xl max-w-md  hover:bg-purple-9 hover:shadow-black py-4 pt-5 mt-4 shadow-md shadow-purple-500/50" @click="goHeater">
+  <div class="bg-violet-9 dark:bg-trueGray-800 px-4 rounded-3xl max-w-md  hover:bg-purple-9 hover:shadow-black py-4 pt-5 mt-4 shadow-md shadow-purple-500/50"  @click="goHeater">
     <div class="text-start ">
+      <template v-if="index === 0">
+          <h1 class="text-2xl">
+            {{ nameTipe }} <span class="text-green-500">Оптимальный</span>
+          </h1>
+      </template>
+      <template v-else>
       <h1 text="2xl">
         {{ nameTipe }}
       </h1>
+      </template>
       <h2>{{ dbn }} {{ russianTipe }}Г-{{ pressure }}-М1/{{ dTube }}Г-{{ l / 1000 }}-{{ nWays }}-У-И </h2>
       <h2> ТУ 3612-024-00220302-02</h2>
     </div>
   </div>
 </template>
+
+Feoconpinga.33
